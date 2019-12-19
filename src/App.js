@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+import "./App.css";
+import Products from "./components/Products";
+import Details from "./components/Details";
+import Carts from "./components/Carts";
+import Navbar from "./components/Navbar";
+import { BrowserRouter, Route, Link } from "react-router-dom";
+import { Button } from "@material-ui/core";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div>
+        <Navbar></Navbar>
+
+        <Route exact path="/" component={Products} />
+        <Route path="/products" component={Products} />
+        <Route path="/details" component={Details} />
+        <Route path="/carts" component={Carts} />
+      </div>
+    </BrowserRouter>
   );
 }
 
